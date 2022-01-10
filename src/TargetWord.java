@@ -1,7 +1,7 @@
 /*
 Author - Charles Chen
 Date - 12/27/2021
-Purpose - Finds the number of times a word occurs in a given string
+Purpose - Finds the number of times a word occurs in a given string and the first occurrence,
 */
 
 import java.util.Scanner;
@@ -23,7 +23,7 @@ public class TargetWord {
                 break;
             }
 
-            // gets word from user
+            // gets input from user
             String sentenceL = sentence.toLowerCase();
             System.out.println("Enter a word");
             String word = scan.nextLine();
