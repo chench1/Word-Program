@@ -40,10 +40,6 @@ public class TargetWord {
                 System.out.println("For the sentence: " + sentence + "\nThe target word of: " + word +
                         "\nThe word " + word + " appeared " + occurrences + " times\nThe first appearance was never");
             }
-
-
-
-
             System.out.println("Would you like to continue? Type \"no\" to exit or anything else to continue.");
 
         } while (!scan.nextLine().equals("no"));
@@ -80,14 +76,18 @@ public class TargetWord {
 
     // checks if the substring is a word
     public static boolean isWord(String sentence, int i, int j) {
+        boolean punctuation = sentence.charAt(j) == '.' || sentence.charAt(j) == '?';
         if (i == 0) {
-            return Character.isWhitespace(sentence.charAt(j));
+            return Character.isWhitespace(sentence.charAt(j)) || punctuation;
         }
-        boolean whitespace = Character.isWhitespace(sentence.charAt(i - 1));
-        if (j != sentence.length()) {
-            return whitespace && Character.isWhitespace(sentence.charAt(j));
+        boolean whitespaceBefore = Character.isWhitespace(sentence.charAt(i - 1));
+        if (j == sentence.length() - 1) {
+            return whitespaceBefore;
+        }
+        if (j != sentence.length() - 1) {
+            return whitespaceBefore && (Character.isWhitespace(sentence.charAt(j)) || punctuation);
         } else {
-            return whitespace;
+            return whitespaceBefore;
         }
     }
 }
