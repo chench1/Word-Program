@@ -80,13 +80,16 @@ public class TargetWord {
             return false;
         }
         boolean punctuation = sentence.charAt(j) == '.' || sentence.charAt(j) == '?';
+        // if the word is at the beginning of the string
         if (i == 0) {
             return Character.isWhitespace(sentence.charAt(j)) || punctuation;
         }
         boolean whitespaceBefore = Character.isWhitespace(sentence.charAt(i - 1));
+        // if the word is at the end of the string
         if (j == sentence.length() - 1) {
             return whitespaceBefore;
         }
+        // if the word is in the middle of the string
         if (j != sentence.length() - 1) {
             return whitespaceBefore && (Character.isWhitespace(sentence.charAt(j)) || punctuation);
         } else {
