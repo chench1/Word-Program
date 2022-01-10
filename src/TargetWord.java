@@ -76,6 +76,9 @@ public class TargetWord {
 
     // checks if the substring is a word
     public static boolean isWord(String sentence, int i, int j) {
+        if (j > sentence.length() - 1) {
+            return false;
+        }
         boolean punctuation = sentence.charAt(j) == '.' || sentence.charAt(j) == '?';
         if (i == 0) {
             return Character.isWhitespace(sentence.charAt(j)) || punctuation;
